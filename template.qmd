@@ -127,28 +127,28 @@ First, let's read in all the data.
 1. Update the code blocks below, then replace \```julia\``` with \```{julia}\```.
 :::
 
-```julia
+```{julia}
 years = 1928:2021 # all the years of data
-annual_data = # call the read_tides function on each year (see hint above!)
+annual_data = read_tides.(years) # call the read_tides function on each year (see hint above!)
 typeof(annual_data) # should be a vector of DataFrames
 ```
 
 Next, we'll use the `vcat` function to combine all the data into a single `DataFrame`.
 
-```julia
+```{julia}
 df = vcat(annual_data...)
 first(df, 5)
 ```
 
 And we can look at the last 5 rows
 
-```julia
+```{julia}
 last(df, 5)
 ```
 
 Finally, we'll make sure we drop any missing data.
 
-```julia
+```{julia}
 dropmissing!(df) # drop any missing data
 ```
 
