@@ -174,5 +174,21 @@ plot(
 )
 ```
 
+```{julia}
+df[!, :month] = Dates.month.(df.datetime)
+dropmissing!(df, :lsl)
+df_bymonth = groupby(df, :month)
+df_climatology = combine(df_bymonth, :lsl => mean => :lsl_avg)
+```
 
-
+```{julia}
+plot(
+    df_climatology.month,
+    df_climatology.lsl_avg;
+    xticks = 1:12,
+    xlabel = "Month",
+    ylabel = "Average Water Level",
+    linewidth = 3,
+    label = false,
+)
+```
