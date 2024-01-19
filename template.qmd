@@ -158,3 +158,21 @@ dropmissing!(df) # drop any missing data
 1. In the instructions, we plotted the average monthly water level from each month using `groupby`. Repeat this analysis, using the full dataset (all years). 
 1. Now repeat the analysis, but group by day of the year. What do you notice? (**Hint**: use `Dates.dayofyear` to get the day of the year from a `DateTime` object)
 
+```{julia}
+t_start = Dates.DateTime(2020,03, 1, 0)
+t_end = Dates.DateTime(2020, 03, 31, 23)
+df_month = @subset(df, t_start .<= :datetime .<= t_end)
+```
+
+```{julia}
+plot(
+    df_month.datetime,
+    df_month.lsl;
+    title = "Hourly Water Levels at Sewells Point, VA",
+    ylabel = "Water level",
+    label = false,
+)
+```
+
+
+
