@@ -192,3 +192,22 @@ plot(
     label = false,
 )
 ```
+
+```{julia}
+df[!, :day] = Dates.dayofyear.(df.datetime)
+dropmissing!(df, :lsl)
+df_byday = groupby(df, :day)
+df_climatologyday = combine(df_byday, :lsl => mean => :lsl_avg)
+```
+
+```{julia}
+plot(
+    df_climatologyday.day,
+    df_climatologyday.lsl_avg;
+    xticks = 1:12,
+    xlabel = "day",
+    ylabel = "Average Water Level",
+    linewidth = 3,
+    label = false,
+)
+```
