@@ -246,39 +246,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Instructions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Fill out this function. Your function should implement the six steps indicated in the instructions. Use the example code from <a href="index.qmd"><code>index.qmd</code></a> to help you. When it’s done, convert it to a live code block by replacing ```julia``` with ```{julia}```. When you run this code, it should print out the first 10 rows of the 1928 data. Make sure they look right!</p>
-</div>
-</div>
 </section>
 <section id="building-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="building-the-dataset">Building the dataset</h2>
 <p>Now that we have the ability to read in the data corresponding to any year, we can read them all in and combine into a single <code>DataFrame</code>. First, let’s read in all the data.</p>
-<div class="callout callout-style-simple callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Instructions
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Hint</strong>: to <em>vectorize</em> a function means to apply it to each element of a vector. For example, <code>f.(x)</code> will apply the function <code>f</code> to each element of the vector <code>x</code>. This is a very common operation in Julia!</li>
-<li>Update the code blocks below, then replace ```julia``` with ```{julia}```.</li>
-</ol>
-</div>
-</div>
 <div id="9d64f256" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a>years <span class="op">=</span> <span class="fl">1928</span><span class="op">:</span><span class="fl">2021</span> <span class="co"># all the years of data</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>annual_data <span class="op">=</span> <span class="fu">read_tides</span>.(years) <span class="co"># call the read_tides function on each year (see hint above!)</span></span>
